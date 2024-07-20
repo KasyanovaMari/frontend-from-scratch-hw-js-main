@@ -2,17 +2,20 @@
 // Результат присвойте переменной sum
 
 // your code
+
+let i = 1 
 let sum = 0
-let count = 1 
-let number = 20
 
-while (count <= 20){
-    // console.log(count);
-        sum = sum + count;
-        count++;
-    if (count > 20){
-        break;
-    }
+// while (i <= 20){
+//     console.log(sum += i);
+//     i++;
+// }
+
+// console.log(sum);  
+
+while (i <= 20){
+    console.log(sum = sum + i);
+    i++;
 }
-console.log(sum);  
 
+console.log(sum);  
