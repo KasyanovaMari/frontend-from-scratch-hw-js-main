@@ -3,19 +3,12 @@
 
 // your code
 
-let i = 1 
-let sum = 0
+let sum = 0;
+let count = 1;
 
-// while (i <= 20){
-//     console.log(sum += i);
-//     i++;
-// }
-
-// console.log(sum);  
-
-while (i <= 20){
-    console.log(sum = sum + i);
-    i++;
+while (count <= 20) {
+    sum = sum + count;
+    count = count + 1;
 }
 
-console.log(sum);  
+console.log(sum);
