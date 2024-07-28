@@ -18,20 +18,29 @@ if (isWinningDouble) {
 }
 */
 
-let dice1 // your code
-let dice2 // your code
-let isWinningDouble // your code
+let dice1 // первая кость
+let dice2 // вторая кость
+let isWinningDouble // переменная для проверки выигрыша
 
-
-dice1 = Math.floor(Math.random() * 6) + 1
-dice2 = Math.floor(Math.random() * 6) + 1
+// dice1 = Math.floor(Math.random() * 6) + 1
+// dice2 = Math.floor(Math.random() * 6) + 1
+function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+// Инициализируем переменную isWinningDouble как false
+isWinningDouble = false;
 
 while (!isWinningDouble) {
-console.log('Первый бросок: ' + dice1)
-console.log('Второй бросок: ' + dice2)
-if (isWinningDouble = (dice1 === dice2) && (dice1 > 3) && (dice2 > 3)) {
-  console.log('Выигрышный дубль!')
-} else {
-  console.log('Не выигрышный дубль.')
-}break
+  dice1 = rollDice();
+  dice2 = rollDice();
+  console.log('Первый бросок: ' + dice1)
+  console.log('Второй бросок: ' + dice2)
+
+    // Используем оператор == для сравнения на равенство
+  if (dice1 === dice2 && dice1 > 3) {
+    isWinningDouble = true;
+    console.log('Выигрышный дубль!')
+  } else {
+    console.log('Не выигрышный дубль.')
+  }
 }
