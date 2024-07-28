@@ -8,7 +8,7 @@
 */
 
 // тестовые данные (значения можно менять)
-const isAdmin = false
+const isAdmin = true
 const isVerifiedUser = true
 const hasSpecialPermission = true
 const hasTemporaryPass = false
@@ -17,10 +17,5 @@ let isAccess
 
 // your code
 
-while (isAdmin) {
-    isAccess = false
-    if (hasSpecialPermission === true || hasTemporaryPass === true) {
-        isAccess = true
-    }
-    console.log(isAccess);
-}
+isAccess = isAdmin || isVerifiedUser && (hasSpecialPermission || hasTemporaryPass);
+console.log(isAccess);
