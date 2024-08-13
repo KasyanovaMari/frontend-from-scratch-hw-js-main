@@ -27,9 +27,9 @@ function findUniqueElements(array, element) {
 function findUniqueElements(array) {
     const uniqueElements = [];
     
-    for(let str of arr) {
+    for(let str of array) {
         if (!uniqueElements.includes(str)) {
-        uniqueElements.push(srt);
+        uniqueElements.push(str);
         }
     }
     return uniqueElements;
