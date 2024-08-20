@@ -20,9 +20,9 @@
 function findUniqueElements(array) {
     const uniqueElements = [];
     
-    for(let str of array) {
-        if (!uniqueElements.includes(str)) {
-        uniqueElements.push(str);
+    for(let i = 0; i < array.length; i++) {
+        if (!uniqueElements.includes(array[i])) {
+        uniqueElements.push(array[i]);
         }
     }
     return uniqueElements;
