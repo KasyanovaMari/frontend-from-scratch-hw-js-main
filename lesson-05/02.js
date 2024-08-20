@@ -36,7 +36,11 @@ const gallery = {
 }
 
 function updateGallery(gallery, artName, newValue) {
-  gallery[artName] = newValue;
+  if (gallery.hasOwnProperty(artName)) {
+    gallery[artName] = newValue;
+  } else {
+    gallery[artName] = newValue;
+  }
 }
-return updateGallery
+
 
