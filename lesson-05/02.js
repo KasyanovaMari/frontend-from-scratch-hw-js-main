@@ -38,7 +38,5 @@ const gallery = {
 function updateGallery(gallery, artName, newValue) {
   gallery[artName] = newValue;
 }
-updateGallery(gallery, 'Mona Lisa', 'Leonardo da Vinci, 1503-1506')
-updateGallery(gallery, 'The Persistence of Memory', 'Salvador Dali')
+return updateGallery
 
-console.log(gallery)
