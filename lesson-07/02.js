@@ -6,7 +6,11 @@
 function isNumeric(str) {
   return typeof str === 'string' && str.trim() !== '' && !isNaN(Number(str))
 }
-
+ // Проверяем, является ли str строкой
+  // `typeof str === 'string'` возвращает true, если str - строка.
+  // `str.trim() !== ''` убирает пробелы в начале и конце строки и проверяет, что строка не пустая.
+  // `!isNaN(Number(str))` проверяет, можно ли преобразовать строку в число.
+  
 console.log(isNumeric("123")) // Ожидаемый результат: true
 console.log(isNumeric("12.3")) // Ожидаемый результат: true
 console.log(isNumeric("123abc")) // Ожидаемый результат: false
