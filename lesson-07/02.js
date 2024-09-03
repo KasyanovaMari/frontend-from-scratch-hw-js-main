@@ -4,8 +4,8 @@
  */
 
 function isNumeric(str) {
-if (typeof str === 'string') {
-  return !isNaN(str);
+if (typeof str !== 'string' || typeof str !== "") {
+  return isNaN(str);
   }
 }
 
