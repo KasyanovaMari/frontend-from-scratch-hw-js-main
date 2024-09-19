@@ -28,13 +28,11 @@ const map = (array, callback) => {
   const newArr = []
   for (let index = 0; index < array.length; index++) {
     const element = array[index]
-      if (callback(element, index)){
-        newArr.push(element)
+        newArr.push(callback(element, index))
       }
-  }
   return newArr
+  }
   
-}
 const numbers = [1, 2, 3, 4, 5]
 
 const doubledNumbers = map(numbers, (element, index) => {
