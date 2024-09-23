@@ -11,7 +11,7 @@
   - метод должен обновить отображение фильмов на странице
 
 2. Добавить обработчик события для удаления фильмов:
-  - в метода view.init добавить обработчик события на список фильмов
+  - у метода view.init добавить обработчик события на список фильмов
   - используя делегирование событий, обработать клик на кнопке удаления фильма
   - при клике на кнопку удаления, получить id фильма из родительского элемента и передать его в метод deleteMovie объекта controller
 
@@ -29,7 +29,22 @@ const model = {
     this.movies.push(newMovie)
     view.renderMovies(this.movies)
   },
-  // your code
+  deleteMovie(movieId) {
+    this.movies = this.movies.filter((movie) => movie.id !== movieId)
+
+    view.renderMovies(model.movies)
+  },
+  toggleMovie(movieId) {
+    // воспользуемся методом map
+    this.movies = this.movies.map((movie) => {
+        if (movie.id === movieId) {
+            movie.isDeleted = !movie.isDeleted
+        }
+        return movie
+    })
+
+    view.renderMovies(model.movies) // Обновляем представление
+},
 }
 
 const view = {
@@ -50,7 +65,13 @@ const view = {
       inputDescription.value = ''
     })
 
-    // your code
+    const list = document.querySelector('.list')
+    list.addEventListener('click', function (event) {
+      if (event.target.classList.contains('delete-button')) {
+        const movieId = event.target.parentElement.id
+        controller.deleteMovie(movieId)
+      }
+    })
   },
   renderMovies(movies) {
     const list = document.querySelector('.list')
@@ -90,7 +111,13 @@ const controller = {
       view.displayMessage('Заполните все поля!', true)
     }
   },
-  // your code
+  deleteMovie(id){
+    model.deleteMovie(id)
+    view.displayMessage("Фильм успешно удалён!")
+  },
+  toggleMovie(id){
+    model.toggleMovie(id)
+  }
 }
 
 function init() {
