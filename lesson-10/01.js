@@ -31,8 +31,7 @@ const model = {
   },
   deleteMovie(movieId) {
     this.movies = this.movies.filter((movie) => movie.id !== movieId)
-
-    view.renderMovies(model.movies)
+    view.renderMovies(this.movies)
   },
   toggleMovie(movieId) {
     // воспользуемся методом map
@@ -43,8 +42,8 @@ const model = {
         return movie
     })
 
-    view.renderMovies(model.movies) // Обновляем представление
-},
+    view.renderMovies(this.movies) // Обновляем представление
+  },
 }
 
 const view = {
@@ -67,8 +66,12 @@ const view = {
 
     const list = document.querySelector('.list')
     list.addEventListener('click', function (event) {
+      if (event.target.classList.contains('movie-title')) {
+        const movieId = +event.target.parentElement.id
+        controller.toggleMovie(movieId)
+      }
       if (event.target.classList.contains('delete-button')) {
-        const movieId = event.target.parentElement.id
+        const movieId = +event.target.parentElement.id
         controller.deleteMovie(movieId)
       }
     })
@@ -111,7 +114,7 @@ const controller = {
       view.displayMessage('Заполните все поля!', true)
     }
   },
-  deleteMovie(id){
+  deleteMovie(id) {
     model.deleteMovie(id)
     view.displayMessage("Фильм успешно удалён!")
   },
